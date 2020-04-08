@@ -12,9 +12,9 @@ class UserPlansFragment : BaseFragment<FragmentUserPlansBinding, UserPlansViewMo
 
     //private val params: UserPlansFragmentArgs by navArgs()
 
-    override fun getBindingVariable() = BR.viewModel
+    override fun getNavigatorBinding() = BR.navigator
 
-    override fun getViewModel()= ViewModelProvider(this).get(UserPlansViewModel::class.java)
+    override fun getViewModel() = ViewModelProvider(this).get(UserPlansViewModel::class.java)
 
     override fun getLayoutId() = R.layout.fragment_user_plans
 

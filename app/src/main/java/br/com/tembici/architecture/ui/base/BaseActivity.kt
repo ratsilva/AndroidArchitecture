@@ -11,8 +11,6 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
     private lateinit var binding: T
     private lateinit var viewModel: V
 
-    // Must be overwritten
-    abstract fun getBindingVariable(): Int
     abstract fun getViewModel(): V
     @LayoutRes abstract fun getLayoutId(): Int
 
@@ -23,8 +21,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
 
     private fun performDataBinding() {
         binding = DataBindingUtil.setContentView(this, getLayoutId())
-        this.viewModel = getViewModel()
-        binding.setVariable(getBindingVariable(), viewModel)
+        viewModel = getViewModel()
         binding.executePendingBindings()
     }
 }

@@ -1,6 +1,7 @@
 package br.com.tembici.architecture.usage.userPlans
 
-interface UserPlansNavigator {
+import br.com.tembici.architecture.ui.base.BaseNavigator
+
+interface UserPlansNavigator : BaseNavigator {
     fun navigateToPlanDetails()
-    fun goBack()
 }

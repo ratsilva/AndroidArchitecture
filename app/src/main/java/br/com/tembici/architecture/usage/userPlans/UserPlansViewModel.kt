@@ -4,13 +4,15 @@ import br.com.tembici.architecture.ui.base.BaseViewModel
 
 class UserPlansViewModel : BaseViewModel(), UserPlansNavigator {
 
-    override fun navigateToPlanDetails() = navigateTo(UserPlansFragmentDirections.showUserPlanDetailsFragment())
-
-    override fun goBack() = navigateBack()
-
     init {
         fetchUserPlans()
     }
+
+    override fun goBack() = navigateBack()
+
+    override fun navigateToPlanDetails() = navigateTo(UserPlansFragmentDirections.showUserPlanDetailsFragment())
+
+    override fun getViewModelTag() = javaClass.simpleName
 
     private fun fetchUserPlans(){
 
@@ -19,5 +21,5 @@ class UserPlansViewModel : BaseViewModel(), UserPlansNavigator {
 
     }
 
-    override fun getViewModelTag() = javaClass.simpleName
+
 }

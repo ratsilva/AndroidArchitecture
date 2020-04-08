@@ -19,7 +19,7 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
     private lateinit var viewModel: V
     private var mainActivity: BaseActivity<*, *>? = null
 
-    abstract fun getBindingVariable(): Int
+    abstract fun getNavigatorBinding(): Int
     abstract fun getViewModel(): V
     @LayoutRes abstract fun getLayoutId(): Int
     abstract fun getFragmentTag(): String
@@ -33,7 +33,7 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        this.viewModel = getViewModel()
+        viewModel = getViewModel()
         return binding.root
     }
 
@@ -44,7 +44,7 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.setVariable(getBindingVariable(), viewModel)
+        binding.setVariable(getNavigatorBinding(), viewModel)
         binding.lifecycleOwner = this
         binding.executePendingBindings()
     }

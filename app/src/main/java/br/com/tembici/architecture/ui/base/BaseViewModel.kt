@@ -8,7 +8,7 @@ import androidx.navigation.NavDirections
 import br.com.tembici.architecture.utils.navigation.EventNav
 import br.com.tembici.architecture.utils.navigation.NavigationCommand
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel(), BaseNavigator {
 
     private var isLoading = ObservableBoolean()
 
